@@ -178,15 +178,13 @@ Accounts.prototype.signTransaction = function signTransaction(tx, privateKey, ca
                 Bytes.fromNat(transaction.gas),
                 transaction.to.toLowerCase(),
                 Bytes.fromNat(transaction.value),
-                transaction.data,
-                Bytes.fromNat(transaction.chainId || "0x1"),
-                "0x",
-                "0x"]);
+                transaction.data
+            ]);
 
 
             var hash = Hash.keccak256(rlpEncoded);
 
-            var signature = Account.makeSigner(Nat.toNumber(transaction.chainId || "0x1") * 2 + 35)(Hash.keccak256(rlpEncoded), privateKey);
+            var signature = Account.makeSigner(27)(Hash.keccak256(rlpEncoded), privateKey);
 
             var rawTx = RLP.decode(rlpEncoded).slice(0, 6).concat(Account.decodeSignature(signature));
 
