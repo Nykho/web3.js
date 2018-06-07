@@ -1,5 +1,5 @@
 {
-    "name": "web3",
+    "name": "web3-cardano",
     "namespace": "ethereum",
     "version": "1.0.0-beta.34",
     "description": "Cardano fork of Ethereum JavaScript API wrapper repository",
